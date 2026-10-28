@@ -1,10 +1,10 @@
 # BÀI LÀM – HACKATHON 01
 
 - **Mã đề:** 14
-- **Họ tên:** 
-- **Lớp:** 
+- **Họ tên:*Lê Quốc Minh Quân* 
+- **Lớp:**CNTT 2 
 - **Link repository:** 
-- **Hệ điều hành (Windows/macOS):** 
+- **Hệ điều hành (Windows/macOS):** Window
 
 ## 4.2. Thao tác máy tính cơ bản bằng CLI
 
@@ -12,13 +12,46 @@
 
 ```shell
 # Ghi lần lượt các lệnh đã chạy, mỗi lệnh một dòng
+* Hiển thị đường dẫn tuyệt đối: Get-location.
+* Liệt kê tất cả nội dung, bao gồm file ẩn:Get-chiditem. 
+* Di chuyển các file: Move-Item -path "huong_dan_cham_soc.txt" -Denstiation "docs\\" và Move-Item -path "logo_nha_khoa.PNG" -Denstiation "media\\".
+* Sao chép logo từ media vào backup: cp -path "media\\logo_nha_khoa.PNG" -Denstiation "Backup"
+* xóa file .tmp tại thư mục gốc;  không xóa file khác: remove-item -path "nha-khoa-website".
+* Đường dẫn tương đối: cd logs ; get-chiditem -path; cd.. 
 
 ```
 
 ### Kết quả liệt kê toàn bộ dự án (Windows: Get-ChildItem -Recurse -Force; macOS: ls -aR)
 
 ```text
-(Dán kết quả vào đây – xoá dòng này)
+ Directory: C:\Users\Quan\Downloads\starter-kit (5)
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        10/28/2026   1:43 PM                nha-khoa-website
+
+
+    Directory: C:\Users\Quan\Downloads\starter-kit (5)\nha-khoa-website
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        10/28/2026   1:48 PM                Nha Khoa Website FINAL
+------        10/27/2026   1:32 AM           2224 bai_lam.md
+
+
+    Directory: C:\Users\Quan\Downloads\starter-kit (5)\nha-khoa-website\Nha Khoa Website FINAL
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+------        10/27/2026   1:32 AM             65 .env
+-a----        10/27/2026   1:32 AM           1079 clinic.log.log
+-a----        10/27/2026   1:32 AM           6094 dieu_tri_thang_4.xlsx.xlsx
+-a----        10/27/2026   1:32 AM             63 huong_dan_cham_soc.txt.txt
+-a----        10/27/2026   1:32 AM           5736 logo_nha_khoa.PNG.PNG
+------        10/27/2026   1:32 AM             22 temp_226.tmp
 
 ```
 
@@ -34,7 +67,7 @@
 ### 2 dòng lỗi đầu tiên trong daily_report.txt
 
 ```text
-(Dán kết quả vào đây – xoá dòng này)
+Get-content logs/clinic.log | select-string "ERROR" > logs/daily_report.txt
 
 ```
 
@@ -70,7 +103,7 @@
 ### Lệnh
 
 ```shell
-# Ghi lệnh vào đây (xoá dòng này)
+# (Get-Content bai_lam.md | Select-String "ERROR").count
 
 ```
 
@@ -86,17 +119,23 @@
 ### Các lệnh đã chạy
 
 ```shell
-# Ghi lần lượt các lệnh đã chạy, mỗi lệnh một dòng (xoá dòng này)
+# ===TONG HOP LOG===
+(Get-Content clinic.log.log | Select-String "ERROR").Count 
+Get-Content clinic.log.log | Select-String "WARNING"
+
+  
 
 ```
 
 ### Nội dung file logs/tong_hop.txt
 
 ```text
-(Dán kết quả vào đây – xoá dòng này)
+PS C:\Users\Quan\Downloads\starter-kit (5)> (Get-Content clinic.log.log | Select-String "ERROR").Count
+0
 
 ```
 
 ## 4.8. Excel
 
 > Phần Excel được chấm trực tiếp trên file `data/dieu_tri_thang_4.xlsx`, không cần ghi vào đây.
+u_tri_thang_4.xlsx`, không cần ghi vào đây.
